@@ -20,15 +20,14 @@ export const LogoContainer = styled.div`
   margin-left: 0.5rem;
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
-  font-family: sans-serif;
+  font-size: 1.5rem;
 
   p {
     color: #fff;
   }
 
   svg {
-    font-size: 2em;
+    font-size: 2rem;
     color: #e07924;
     margin-right: 0.5rem;
   }
@@ -73,7 +72,6 @@ export const MenuItemLink = styled.a`
   height: 100%;
   padding: 0.5rem 2.5rem;
   color: #64b2ff;
-  font-family: sans-serif;
   font-size: 1rem;
   font-weight: 300;
   cursor: pointer;
