@@ -28,8 +28,9 @@ export const LogoContainer = styled.div`
 
   svg {
     font-size: 2rem;
-    color: #e07924;
+    color: #15960b;
     margin-right: 0.5rem;
+    margin-left: 0.5rem;
   }
 `;
 
@@ -45,7 +46,7 @@ export const Menu = styled.ul`
     top: 70px;
     left: ${({ open }) => (open ? "0" : "-100%")};
     width: 100%;
-    height: 90vh;
+    height: 40vh;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -79,7 +80,7 @@ export const MenuItemLink = styled.a`
 
   &:hover {
     color: #fff;
-    background-color: #e0792a;
+    background-color: #15960b;
     transition: 0.5s all ease;
   }
 
@@ -98,8 +99,8 @@ export const MobileIcon = styled.div`
 
     svg {
       font-size: 2em;
-      color: #e07924;
-      margin-right: 0.5rem;
+      color: #15960b;
+      margin-right: 1rem;
     }
   }
 `;
