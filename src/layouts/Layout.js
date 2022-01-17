@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
 import { ContentWrapper } from "./Layout.elements";
 
