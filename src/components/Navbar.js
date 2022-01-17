@@ -27,17 +27,17 @@ const NavBar = () => {
         </MobileIcon>
         <Menu open={showMobileMenu}>
           <MenuItem>
-            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)} to="/">
               Inicio
             </MenuItemLink>
           </MenuItem>
           <MenuItem>
-            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)} to="/calculadora">
               Calculadora de Tasas
             </MenuItemLink>
           </MenuItem>
           <MenuItem>
-            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)} to="/tablas">
               Tablas de Amortización
             </MenuItemLink>
           </MenuItem>
