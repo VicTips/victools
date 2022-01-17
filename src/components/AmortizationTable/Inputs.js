@@ -11,7 +11,8 @@ import {
 function Inputs({ onChange }) {
   const types = [
     { value: "fixed", label: "Cuota fija" },
-    { value: "variable", label: "Cuota variable" },
+    { value: "variable", label: "Abono constante" },
+    { value: "lineargrowth", label: "Lineal creciente" },
   ];
   const [loan, setLoan] = useState("");
   const [nper, setNper] = useState("");
@@ -31,12 +32,30 @@ function Inputs({ onChange }) {
       }}
     >
       <TextField
+        id="type"
+        focused
+        select
+        variant="outlined"
+        label="Modalidad"
+        color="primary"
+        margin="normal"
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        style={{ textAlign: "center" }}
+      >
+        {types.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+      </TextField>
+      <TextField
         id="loan"
         focused
         placeholder="$10,000,000"
         variant="outlined"
         label="Valor del crédito"
-        color={type === "fixed" ? "primary" : "secondary"}
+        color="primary"
         margin="normal"
         onChange={(e) => setLoan(e.target.value)}
         InputProps={{
@@ -49,7 +68,7 @@ function Inputs({ onChange }) {
         placeholder="12"
         variant="outlined"
         label="Número de periodos"
-        color={type === "fixed" ? "primary" : "secondary"}
+        color="primary"
         margin="normal"
         onChange={(e) => setNper(e.target.value)}
         InputProps={{
@@ -62,31 +81,13 @@ function Inputs({ onChange }) {
         placeholder="1.5%"
         variant="outlined"
         label="Tasa de interés"
-        color={type === "fixed" ? "primary" : "secondary"}
+        color="primary"
         margin="normal"
         onChange={(e) => setRate(e.target.value)}
         InputProps={{
           inputComponent: FormatPercentage,
         }}
       />
-      <TextField
-        id="type"
-        focused
-        select
-        variant="outlined"
-        label="Modalidad"
-        color={type === "fixed" ? "primary" : "secondary"}
-        margin="normal"
-        value={type}
-        onChange={(e) => setType(e.target.value)}
-        style={{ textAlign: "center" }}
-      >
-        {types.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-      </TextField>
     </Box>
   );
 }
