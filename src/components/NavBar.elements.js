@@ -52,6 +52,7 @@ export const Menu = styled.ul`
     flex-direction: column;
     align-items: center;
     transition: 0.5s all ease;
+    z-index: 100;
   }
 `;
 
