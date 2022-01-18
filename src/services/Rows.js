@@ -98,7 +98,7 @@ class Rows {
           ((1 + this.intRate / 100) ** this.nPer - 1) -
         gradient *
           (1 / (this.intRate / 100) -
-            this.nPer / (1 + (this.intRate / 100) ** this.nPer - 1));
+            this.nPer / ((1 + this.intRate / 100) ** this.nPer - 1));
     }
 
     let rows = [

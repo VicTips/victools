@@ -11,16 +11,6 @@ const Tables = () => {
   const [type, setType] = useState("");
   let rows = new Rows(loan, nper, rate);
 
-  function Type(type, linearGradient) {
-    if (type === "fixed") {
-      return rows.pmtFixed();
-    } else if (type === "variable") {
-      return rows.pmtVariable();
-    } else if (type === "linearGrowth") {
-      return rows.linearGrowth(linearGradient);
-    }
-  }
-
   return (
     <Box m={{ xs: 2, sm: 3, md: 4, lg: 5 }} mt={{ xs: 0, sm: 1, md: 2, lg: 3 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -35,7 +25,7 @@ const Tables = () => {
       </Box>
       <Box mt={{ xs: 2, sm: 3, md: 4, lg: 5 }}>
         <AmortizationTable
-          rows={Type(type, 100000)}
+          rows={type === "fixed" ? rows.pmtFixed() : type === "variable" ? rows.pmtVariable() : rows.linearGrowth(100000)}
         />
       </Box>
     </Box>
