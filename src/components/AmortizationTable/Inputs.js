@@ -12,7 +12,7 @@ function Inputs({ onChange }) {
   const types = [
     { value: "fixed", label: "Cuota fija" },
     { value: "variable", label: "Abono constante" },
-    { value: "lineargrowth", label: "Lineal creciente" },
+    { value: "linearGrowth", label: "Lineal creciente" },
   ];
   const [loan, setLoan] = useState("");
   const [nper, setNper] = useState("");

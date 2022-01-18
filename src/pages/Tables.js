@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Inputs from '../components/AmortizationTable/Inputs';
-import AmortizationTable from '../components/AmortizationTable/AmortizationTable';
-import Box from '@mui/material/Box';
+import React, { useState } from "react";
+import Inputs from "../components/AmortizationTable/Inputs";
+import AmortizationTable from "../components/AmortizationTable/AmortizationTable";
+import Box from "@mui/material/Box";
 import Rows from "../services/Rows";
 
 const Tables = () => {
@@ -10,6 +10,17 @@ const Tables = () => {
   const [rate, setRate] = useState("");
   const [type, setType] = useState("");
   let rows = new Rows(loan, nper, rate);
+
+  function Type(type, linearGradient) {
+    if (type === "fixed") {
+      return rows.pmtFixed();
+    } else if (type === "variable") {
+      return rows.pmtVariable();
+    } else if (type === "linearGrowth") {
+      return rows.linearGrowth(linearGradient);
+    }
+  }
+
   return (
     <Box m={{ xs: 2, sm: 3, md: 4, lg: 5 }} mt={{ xs: 0, sm: 1, md: 2, lg: 3 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -23,10 +34,12 @@ const Tables = () => {
         />
       </Box>
       <Box mt={{ xs: 2, sm: 3, md: 4, lg: 5 }}>
-        <AmortizationTable rows={type === "fixed" ? rows.pmtFixed() : rows.pmtVariable()} type={type}/>
+        <AmortizationTable
+          rows={Type(type, 100000)}
+        />
       </Box>
     </Box>
   );
-}
+};
 
-export default Tables
+export default Tables;
