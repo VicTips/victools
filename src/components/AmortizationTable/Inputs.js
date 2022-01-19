@@ -17,11 +17,12 @@ function Inputs({ onChange }) {
   const [loan, setLoan] = useState("");
   const [nper, setNper] = useState("");
   const [rate, setRate] = useState("");
+  const [gradient, setGradient] = useState("");
   const [type, setType] = useState("fixed");
 
   useEffect(() => {
-    onChange(loan, nper, rate, type);
-  }, [onChange, loan, nper, rate, type]);
+    onChange(loan, gradient, nper, rate, type);
+  }, [onChange, loan, gradient, nper, rate, type]);
 
   return (
     <Box
@@ -58,6 +59,20 @@ function Inputs({ onChange }) {
         color="primary"
         margin="normal"
         onChange={(e) => setLoan(e.target.value)}
+        InputProps={{
+          inputComponent: FormatCurrency,
+        }}
+      />
+      <TextField
+        id="gradient"
+        focused
+        placeholder="$100,000"
+        variant="outlined"
+        label="Gradiente"
+        color="primary"
+        margin="normal"
+        style={{ display: type !== "linearGrowth" ? "none" : "flex" }}
+        onChange={(e) => setGradient(e.target.value)}
         InputProps={{
           inputComponent: FormatCurrency,
         }}
