@@ -13,6 +13,7 @@ function Inputs({ onChange }) {
     { value: "fixed", label: "Cuota fija" },
     { value: "variable", label: "Abono constante" },
     { value: "linearGrowth", label: "Lineal creciente" },
+    { value: "linearDecay", label: "Lineal decreciente" },
   ];
   const [loan, setLoan] = useState("");
   const [nper, setNper] = useState("");
@@ -71,7 +72,9 @@ function Inputs({ onChange }) {
         label="Gradiente"
         color="primary"
         margin="normal"
-        style={{ display: type !== "linearGrowth" ? "none" : "flex" }}
+        style={{
+          display: type === "linearGrowth" ? "flex" : type === "linearDecay" ? "flex" : "none",
+        }}
         onChange={(e) => setGradient(e.target.value)}
         InputProps={{
           inputComponent: FormatCurrency,
