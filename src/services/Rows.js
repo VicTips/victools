@@ -185,7 +185,7 @@ class Rows {
       for (let period = 1; period <= this.nPer; period++) {
         rows.push({
           period: period,
-          payment: payment + gradient * (period - 1),
+          payment: payment - gradient * (period - 1),
           interest:
             period === 1
               ? (this.loanAmount * this.intRate) / 100
@@ -201,7 +201,7 @@ class Rows {
                   this.intRate) /
                 100,
           principal:
-            payment +
+            payment -
             gradient * (period - 1) -
             (period === 1
               ? (this.loanAmount * this.intRate) / 100

@@ -27,7 +27,15 @@ const Tables = () => {
       </Box>
       <Box mt={{ xs: 2, sm: 3, md: 4, lg: 5 }}>
         <AmortizationTable
-          rows={type === "fixed" ? rows.pmtFixed() : type === "variable" ? rows.pmtVariable() : rows.linearGrowth(gradient)}
+          rows={
+            type === "fixed"
+              ? rows.pmtFixed()
+              : type === "variable"
+              ? rows.pmtVariable()
+              : type === "linearGrowth"
+              ? rows.linearGrowth(gradient)
+              : rows.linearDecay(gradient)
+          }
         />
       </Box>
     </Box>
