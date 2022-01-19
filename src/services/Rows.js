@@ -116,34 +116,42 @@ class Rows {
           period: period,
           payment: payment + gradient * (period - 1),
           interest:
-            this.loan * (1 + (this.intRate / 100) ** (period - 1)) -
-            ((payment * ((1 + this.intRate / 100) ** (period - 1) - 1)) /
-              (this.intRate / 100) +
-              (gradient *
-                (1 / (this.intRate / 100) -
-                  (period - 1) /
-                    (1 + (this.intRate / 100) ** (period - 1) - 1)) *
-                ((1 + this.intRate / 100) ** (period - 1) - 1)) /
-                (this.intRate / 100)),
+            period === 1
+              ? (this.loanAmount * this.intRate) / 100
+              : ((this.loanAmount * (1 + this.intRate / 100) ** (period - 1) -
+                  ((payment * ((1 + this.intRate / 100) ** (period - 1) - 1)) /
+                    (this.intRate / 100) +
+                    (gradient *
+                      (1 / (this.intRate / 100) -
+                        (period - 1) /
+                          ((1 + this.intRate / 100) ** (period - 1) - 1)) *
+                      ((1 + this.intRate / 100) ** (period - 1) - 1)) /
+                      (this.intRate / 100))) *
+                  this.intRate) /
+                100,
           principal:
             payment +
             gradient * (period - 1) -
-            (this.loan * (1 + (this.intRate / 100) ** (period - 1)) -
-              ((payment * ((1 + this.intRate / 100) ** (period - 1) - 1)) /
-                (this.intRate / 100) +
-                (gradient *
-                  (1 / (this.intRate / 100) -
-                    (period - 1) /
-                      (1 + (this.intRate / 100) ** (period - 1) - 1)) *
-                  ((1 + this.intRate / 100) ** (period - 1) - 1)) /
-                  (this.intRate / 100))),
+            (period === 1
+              ? (this.loanAmount * this.intRate) / 100
+              : ((this.loanAmount * (1 + this.intRate / 100) ** (period - 1) -
+                  ((payment * ((1 + this.intRate / 100) ** (period - 1) - 1)) /
+                    (this.intRate / 100) +
+                    (gradient *
+                      (1 / (this.intRate / 100) -
+                        (period - 1) /
+                          ((1 + this.intRate / 100) ** (period - 1) - 1)) *
+                      ((1 + this.intRate / 100) ** (period - 1) - 1)) /
+                      (this.intRate / 100))) *
+                  this.intRate) /
+                100),
           balance:
-            this.loan * (1 + (this.intRate / 100) ** period) -
+            this.loanAmount * (1 + this.intRate / 100) ** period -
             ((payment * ((1 + this.intRate / 100) ** period - 1)) /
               (this.intRate / 100) +
               (gradient *
                 (1 / (this.intRate / 100) -
-                  period / (1 + (this.intRate / 100) ** period - 1)) *
+                  period / ((1 + this.intRate / 100) ** period - 1)) *
                 ((1 + this.intRate / 100) ** period - 1)) /
                 (this.intRate / 100)),
         });
