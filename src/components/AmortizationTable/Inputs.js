@@ -6,7 +6,7 @@ import {
   FormatCurrency,
   FormatPercentage,
   FormatPeriods,
-} from "./CustomFormats";
+} from "../../services/CustomFormats";
 
 function Inputs({ onChange }) {
   const types = [

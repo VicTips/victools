@@ -25,6 +25,7 @@ export const LogoContainer = styled.div`
 
   p {
     color: #fff;
+    letter-spacing: 0.1rem;
   }
 
   svg {
@@ -78,6 +79,7 @@ export const MenuItemLink = styled(Link)`
   color: #64b2ff;
   font-size: 1rem;
   font-weight: 300;
+  letter-spacing: 0.1rem;
   cursor: pointer;
   transition: 0.5s all ease;
 

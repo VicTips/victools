@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { StyledHeader } from "./AmortizationTable.elements";
 
 function AmortizationTable({ rows }) {
   let headers = ["Periodo", "Cuota", "Intereses", "Amortización", "Saldo"];
@@ -21,12 +22,12 @@ function AmortizationTable({ rows }) {
         <TableHead>
           <TableRow>
             {headers.map((header) => (
-              <TableCell
+              <StyledHeader
                 key={header}
                 align="center"
               >
                 <b>{header}</b>
-              </TableCell>
+              </StyledHeader>
             ))}
           </TableRow>
         </TableHead>
