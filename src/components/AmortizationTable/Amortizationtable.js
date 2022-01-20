@@ -22,11 +22,8 @@ function AmortizationTable({ rows }) {
         <TableHead>
           <TableRow>
             {headers.map((header) => (
-              <StyledHeader
-                key={header}
-                align="center"
-              >
-                <b>{header}</b>
+              <StyledHeader key={header} align="center">
+                {header}
               </StyledHeader>
             ))}
           </TableRow>

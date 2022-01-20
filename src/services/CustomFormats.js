@@ -1,10 +1,7 @@
 import React, { forwardRef } from "react";
 import NumberFormat from "react-number-format";
 
-export const FormatCurrency = forwardRef(function FormatCurrency(
-  props,
-  ref
-) {
+export const FormatCurrency = forwardRef(function FormatCurrency(props, ref) {
   const { onChange, ...other } = props;
 
   return (
@@ -28,10 +25,7 @@ export const FormatCurrency = forwardRef(function FormatCurrency(
   );
 });
 
-export const FormatPeriods = forwardRef(function FormatPeriods(
-  props,
-  ref
-) {
+export const FormatPeriods = forwardRef(function FormatPeriods(props, ref) {
   const { onChange, ...other } = props;
 
   return (
