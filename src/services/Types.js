@@ -13,8 +13,8 @@ export const NTRIMESTER = "Nominal trimestral";
 export const NSEMESTER = "Nominal semestral";
 
 export const typesList = [
-  DAY360,
   DAY365,
+  DAY360,
   MONTH,
   BIMESTER,
   TRIMESTER,
