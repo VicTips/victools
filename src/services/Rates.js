@@ -14,7 +14,7 @@ import {
   NSEMESTER,
 } from "./Types";
 
-export default function Rates(intRate, typeIn, typeOut) {
+export default function Rates(intRate, typeIn, typeOut, decimals) {
   let annualEA = "";
   let result = "";
 
@@ -114,11 +114,10 @@ export default function Rates(intRate, typeIn, typeOut) {
     result = intRate / 100;
   }
 
-  const DECIMALS = 14;
   let formatter = new Intl.NumberFormat("en-US", {
     style: "percent",
-    minimumSignificantDigits: DECIMALS,
-    maximumSignificantDigits: DECIMALS,
+    minimumSignificantDigits: decimals,
+    maximumSignificantDigits: decimals,
   });
 
   return formatter.format(result);
