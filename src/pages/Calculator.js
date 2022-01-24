@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Inputs from "../components/Calculator/Inputs";
 import Rates from "../services/Rates";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import IconButton from "@mui/material/IconButton";
 
 const Calculator = () => {
@@ -25,7 +26,20 @@ const Calculator = () => {
         ? Rates(intRate, typeIn, typeOut, decimals)
         : ""}
       <br />
-      <IconButton onClick={() => {setDecimals(decimals + 1)}}>
+      <IconButton
+        onClick={() => {
+          setDecimals(decimals - 1);
+        }}
+        disabled={decimals === 2 ? true : false}
+      >
+        <RemoveCircleIcon />
+      </IconButton>
+      <IconButton
+        onClick={() => {
+          setDecimals(decimals + 1);
+        }}
+        disabled={decimals === 21 ? true : false}
+      >
         <AddCircleIcon />
       </IconButton>
     </Box>
