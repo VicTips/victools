@@ -59,6 +59,8 @@ export default function Rates(intRate, typeIn, typeOut) {
       case NSEMESTER:
         annualEA = ((1 + intRate / 2 / 100) ** 2 - 1) * 100;
         break;
+      default:
+        break;
     }
   }
 
@@ -83,7 +85,7 @@ export default function Rates(intRate, typeIn, typeOut) {
         result = (1 + annualEA / 100) ** (1 / 2) - 1;
         break;
       case ANNUAL:
-        result = annualEA;
+        result = annualEA / 100;
         break;
       case NDAY365:
         result = ((1 + annualEA / 100) ** (1 / 365) - 1) * 365;
@@ -102,6 +104,8 @@ export default function Rates(intRate, typeIn, typeOut) {
         break;
       case NSEMESTER:
         result = ((1 + annualEA / 100) ** (1 / 2) - 1) * 2;
+        break;
+      default:
         break;
     }
   }

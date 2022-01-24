@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { FormatPercentage } from "../../services/CustomFormats";
 import TextField from "@mui/material/TextField";
 import { typesList } from "../../services/Types";
 import MenuItem from "@mui/material/MenuItem";
 
-function Inputs() {
+function Inputs({ onChange }) {
   const [intRate, setIntRate] = useState("");
   const [typeIn, setTypeIn] = useState("");
   const [typeOut, setTypeOut] = useState("");
+
+  useEffect(() => {
+    onChange(intRate, typeIn, typeOut);
+  }, [onChange, intRate, typeIn, typeOut]);
 
   return (
     <Box
@@ -44,7 +48,7 @@ function Inputs() {
         margin="normal"
         value={typeIn}
         onChange={(e) => setTypeIn(e.target.value)}
-        style={{textAlign: 'center'}}
+        style={{ textAlign: "center" }}
       >
         {typesList.map((type) => (
           <MenuItem key={type} value={type}>
@@ -61,7 +65,7 @@ function Inputs() {
         margin="normal"
         value={typeOut}
         onChange={(e) => setTypeOut(e.target.value)}
-        style={{textAlign: 'center'}}
+        style={{ textAlign: "center" }}
       >
         {typesList.map((type) => (
           <MenuItem key={type} value={type}>
