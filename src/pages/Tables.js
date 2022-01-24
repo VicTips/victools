@@ -14,17 +14,15 @@ const Tables = () => {
 
   return (
     <Box m={{ xs: 2, sm: 3, md: 4, lg: 5 }} mt={{ xs: 0, sm: 1, md: 2, lg: 3 }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Inputs
-          onChange={(loan, gradient, nper, rate, type) => {
-            setLoan(loan);
-            setGradient(gradient);
-            setNper(nper);
-            setRate(rate);
-            setType(type);
-          }}
-        />
-      </Box>
+      <Inputs
+        onChange={(loan, gradient, nper, rate, type) => {
+          setLoan(loan);
+          setGradient(gradient);
+          setNper(nper);
+          setRate(rate);
+          setType(type);
+        }}
+      />
       <Box mt={{ xs: 2, sm: 3, md: 4, lg: 5 }}>
         <AmortizationTable
           rows={
