@@ -10,7 +10,7 @@ const Calculator = () => {
   const [intRate, setIntRate] = useState("");
   const [typeIn, setTypeIn] = useState("");
   const [typeOut, setTypeOut] = useState("");
-  const [decimals, setDecimals] = useState(14);
+  const [decimals, setDecimals] = useState(8);
 
   console.log(decimals);
   return (
@@ -38,7 +38,7 @@ const Calculator = () => {
         onClick={() => {
           setDecimals(decimals + 1);
         }}
-        disabled={decimals === 21 ? true : false}
+        disabled={decimals === 14 ? true : false}
       >
         <AddCircleIcon />
       </IconButton>
