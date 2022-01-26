@@ -5,6 +5,7 @@ import Rates from "../services/Rates";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
 const Calculator = () => {
   const [intRate, setIntRate] = useState("");
@@ -22,26 +23,35 @@ const Calculator = () => {
           setTypeOut(typeOut);
         }}
       />
-      {intRate !== "" && typeIn !== "" && typeOut !== ""
-        ? Rates(intRate, typeIn, typeOut, decimals)
-        : ""}
-      <br />
-      <IconButton
-        onClick={() => {
-          setDecimals(decimals - 1);
-        }}
-        disabled={decimals === 2 ? true : false}
-      >
-        <RemoveCircleIcon />
-      </IconButton>
-      <IconButton
-        onClick={() => {
-          setDecimals(decimals + 1);
-        }}
-        disabled={decimals === 14 ? true : false}
-      >
-        <AddCircleIcon />
-      </IconButton>
+      {intRate !== "" && typeIn !== "" && typeOut !== "" ? (
+        <Box>
+          <Typography variant="h6" mt={1}>
+            {Rates(intRate, typeIn, typeOut, decimals)}
+          </Typography>
+
+          <Typography variant="overline">Decimales </Typography>
+          <IconButton
+            onClick={() => {
+              setDecimals(decimals - 1);
+            }}
+            disabled={decimals === 2 ? true : false}
+            color="primary"
+          >
+            <RemoveCircleIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            onClick={() => {
+              setDecimals(decimals + 1);
+            }}
+            disabled={decimals === 14 ? true : false}
+            color="primary"
+          >
+            <AddCircleIcon fontSize="small" />
+          </IconButton>
+        </Box>
+      ) : (
+        ""
+      )}
     </Box>
   );
 };
